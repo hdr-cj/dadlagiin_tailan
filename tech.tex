@@ -1,0 +1,152 @@
+\section{VueJS фреймворкууд}
+Vue нь хэрэглэгчийн интерфэйсийг бүтээхэд зориулагдсан JavaScript фреймворк юм. Энэ нь стандарт HTML, CSS, JavaScript дээр бүтээгдсэн бөгөөд энгийн болон нарийн төвөгтэй хэрэглэгчийн интерфэйсийг үр дүнтэй хөгжүүлэхэд тань туслаж, бүрэлдэхүүн хэсэг дээр суурилсан програмчлалын загварыг өгдөг. \footnote{\url{https://www.scalefocus.com/blog/why-you-should-go-with-go-for-your-next-software-project}}
+
+\subsection{VueJS-ийн давуу талууд}
+\begin{itemize}
+    \item Хялбар кодчлол
+    \item Хэмжээ бага
+    \item Бусад фреймворкуудтай нэгдэх болмжтой
+    \item Виртуал DOM
+\end{itemize}
+
+\begin{lstlisting}[language=HTML, caption=VueJS framework-ийн кодны жишээ, frame=single]
+<div id="app">
+  <button @click="count++">
+    Count is: {{ count }}
+  </button>
+</div>
+
+<script>
+    import { createApp, ref } from 'vue'
+
+    createApp({
+      setup() {
+        return {
+          count: ref(0)
+        }
+      }
+    }).mount('#app')
+</script>
+\end{lstlisting}
+Ийнхүү VueJs дээр товчлуур дээр дарах үед тоо 1-ээр нэмэгдэх програм бичсэн байдлыг харж болно.
+
+\subsection{VITE JS}
+Vite.js нь вэб хөгжүүлэхэд зориулагдсан build tool, хөгжүүлэлтийн сервер юм. Үүнийг ихэвчлэн "дараагийн үеийн" build tool гэж тодорхойлдог, учир нь энэ нь Webpack гэх мэт уламжлалт build tool-үүдтэй харьцуулахад өндөр оновчтой хөгжүүлэлтийн туршлагыг санал болгодог. Vite.js-ийг алдартай JavaScript фрэймворк Vue.js-ийг бүтээсэн Эван Та бүтээсэн.
+
+\subsection{Tailwind SCC}
+Tailwind CSS нь вэб програмын хэрэглэгчийн интерфэйсийг бий болгох үйл явцыг хялбаршуулдаг, маш алдартай бөгөөд хурдацтай хөгжиж буй хэрэглүүрийн анхны CSS фреймворк юм. HTML элементүүдийн class атерибутыг ашиглан элементийг хялбар, богино бичиглэлээр өөрчлөхөөс гадна responsive design бүрэн хийх боломжтой нь хөгжүүлэгчдэд илүү хялбар боломжийг олгож байгаа юм.
+
+\begin{lstlisting}[language=HTML, caption=TailwindCSS framework-ийн жишээ, frame=single]
+<button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+  Button
+</button>
+\end{lstlisting}
+
+Үүнээс HTML элементийн класс дээр backround-ын өнгийг өөрчлөх, урт болон өргөний хэмжээг тааруулах, фонт болон хүрээг дугуйлах зэрэг дизайн гаргасан байдлыг харж болно. Үр дүнг Зураг 4.1-ээс харж болно.
+
+\\\
+\begin{figure}[H]
+\includegraphics[scale=1]{button.png}
+\caption{Tailwind SCC дээр хийсэн товчлуур}
+\end{figure}
+\\
+
+\subsection{Element plus}
+Element Plus нь вэб програм болон хэрэглэгчийн интерфэйс (UI) бүтээхэд зориулагдсан алдартай нээлттэй эхийн UI сан юм. Энэ нь үндсэндээ хэрэглэгчийн интерфэйсийг бий болгоход зориулагдсан дэвшилтэт JavaScript фреймворк болох Vue.js-д зориулагдсан болно. Element Plus нь Vue.js-г өргөтгөж, тохируулах боломжтой UI бүрэлдэхүүн хэсгүүдийг хангаж, хөгжүүлэгчдэд харагдахуйц, responsive вэб програмуудыг хялбархан бүтээхэд тусалдаг.
+
+\begin{lstlisting}[language=HTML, caption=TailwindCSS framework-ийн жишээ, frame=single]
+<template>
+  <div class="demo-date-picker">
+    <div class="block">
+      <p>Component value：{{ value }}</p>
+      <el-date-picker
+        v-model="value"
+        type="daterange"
+        start-placeholder="Start date"
+        end-placeholder="End date"
+        :default-time="defaultTime"
+      />
+    </div>
+  </div>
+</template>
+\end{lstlisting}
+Ийнхүү element plus-ийг ашиглан date picker үүсэгсэн кодны үр дүнг Зураг 4.2-ээс харж болно.
+\\\
+\begin{figure}[H]
+\includegraphics[scale=1]{date-picker.png}
+\caption{Element plus-ын ашиглан хийсэн Date picker}
+\end{figure}
+\\
+
+\section{GOLANG фреймворкууд}
+Golang нь Програмчлалын Си хэлэнд үндэслэн загварчлагдсан ба Google-ийн инженерүүдийн хөгжүүлсэн ерөнхий зориулалтын нээллтэй хэл юм. Golang хэл нь хөнгөн бүтэцтэй тул сурах болон ашиглахад хялбар бөгөөд гүйцэтгэлийн хурд сайтай хэл юм. Golang-ийн хурдан ажиллагаа нь зах зээлд өрсөлдөх хүчтэй давуу тал нь болдог тул Dropbox, Uber, Alibaba, American Express зэрэг олон төрлийн технологийн компаниуд ашигладаг. \footnote{\url{https://www.scalefocus.com/blog/why-you-should-go-with-go-for-your-next-software-project}}
+
+\subsection{Golang-ийн давуу талууд}
+\begin{itemize}
+    \item Хялбар кодчлол. 
+    \item Компайль болон ажиллагааг хурдтай гүйцэтгэдэг
+    \item Хийсвэр машин шаардлагагүй
+    \item Garbage collection нь автоматаар хийгддэг
+\end{itemize}
+
+\subsection{GORM}
+GORM фреймворк нь Golang-д зориулагдсан framework ба Golang Object Relational Model гэсэн үгний товчлол юм. Энэхүү фреймворк нь модел болон функцууд ашиглан өгөгдлийн сантай харьцах боломж олгодог. Дараах хэсэгт энэхүү фреймворкт тохирох моделийн жишээг харуулав. Модел нь талбарын нэр, тухайн талбарын төрөл болон шаардлагатай tag-уудаас бүрдэнэ. JSON tag нь тухайн талбарыг JSON форматад оруулахад ямар түлхүүрээр харуулахыг илэрхийлдэг бол gorm tag нь өгөгдлийн сантай холбоотой утгуудыг агуулна. 
+
+\begin{lstlisting}[language=Go, caption=GORM framework-ийн model жишээ, frame=single]
+type Certificate struct {
+	Id        uint            `json:"id"`
+	FullImage string          `json:"full_image"`
+	PdfPath   string          `json:"pdf_path"`
+	TypeId    uint            `json:"type_id"`
+	Type      CertificateType `json:"type"`
+	UserId    uint            `json:"user_id"`
+}
+\end{lstlisting}
+
+Ийнхүү моделийг нь тодорхойлсны дараагаар өгөгдлийн санд хийгдэх үйлдлүүдэд харгалзах функцууд байна. Доорх жишээнд өгөгдлийн санд нэмэх, засварлах, устгах үйлдлүүдийг GORM фреймворк ашиглан хэрхэн хэрэгжүүлж буйг харж болно. 
+
+\begin{lstlisting}[language=Go, caption=Функц ашиглан өгөгдлийн сангийн үйлдлүүд хийх жишээ, frame=single]
+func (c *Certificate) Create() error {
+	db := database.DBconn
+	return db.Create(c).Error
+}
+
+func (c *Certificate) Update() error {
+	db := database.DBconn
+	return db.Omit("UserId").Updates(c).Error
+}
+
+func (c *Certificate) Delete() error {t()
+	db := database.DBconn
+	return db.Delete(c).Error
+}
+
+\end{lstlisting}
+
+
+\subsection{Go Fiber} 
+Go Fiber нь Golang хэлний https хүсэлтийг боловсруулахад ашиглах фреймворк юм. Go Fiber фреймворк нь fasthttp ашигладаг ба энэ нь хүсэлтийг хурдан боловсруулах боломж олгодог. Мөн хүсэлт хүлээн авах route-үүдийг заахад тун хялбар байдлаар шийдсэнийг дараах хэсгээс харж болно. Доорх жишээнд route-ийг бүлэглэхдээ TokenMiddleware гэсэн дундын функц дамжуулж байгаа ба энэ нь тухайн бүлэгт харгалзах хүсэлт бүр тэрхүү функцээр дамжихийг илэрхийлж байгаа болно. 
+
+\begin{lstlisting}[language=Go, caption=Go Fiber Routing жишээ, frame=single]
+package certificate
+
+import (
+	"arrival-mn-v2/pkg/oauth"
+
+	"github.com/gofiber/fiber/v2"
+)
+
+func SetRoutes(app *fiber.App) {
+	certificate := app.Group("certificate", oauth.TokenMiddleware)
+	certificate.Get("", certificateHandler.List)
+	certificate.Post("", certificateHandler.Create)
+	certificate.Put("", certificateHandler.Update)
+	certificate.Delete("", certificateHandler.Delete)
+}
+
+\end{lstlisting}
+
+\section{PostgreSQL} 
+PostgreSQL нь 35 жил идэвхитэй хөгжүүлэгдсэн обьект хамаарлын нээлттэй өгөгдлийн сангийн систем юм. PostgreSQL нь найдвартай байдал, гүйцэтгэлээрээ нэр хүндтэй систем юм. PostgreSQL болон GORM нь ижилхэн object-relational системүүд тул зохицон ажиллах чадамжтай байдаг нь энэхүү өгөгдлийн сангийн системийн нэгэн давуу тал билээ.\footnote{Postgres: \url{https://www.postgresql.org/}}
+
+

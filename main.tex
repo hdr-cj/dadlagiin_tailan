@@ -1,0 +1,155 @@
+%----------------------------------------------------------------------------------------
+%   Доорх хэсгийг өөрчлөх шаардлагагүй
+%----------------------------------------------------------------------------------------
+%!TEX TS-program = xelatex
+%!TEX encoding = UTF-8 Unicode
+\documentclass[12pt,A4]{report}
+
+\usepackage{fontspec,xltxtra,xunicode}
+\setmainfont[Ligatures=TeX]{Times New Roman}
+\setsansfont{Arial}
+
+% \usepackage[utf8x]{inputenc}
+% \usepackage[mongolian]{babel}
+%\usepackage{natbib}
+\usepackage{geometry}
+%\usepackage{fancyheadings} fancyheadings is obsolete: replaced by fancyhdr. JL
+\usepackage{fancyhdr}
+\usepackage{float}
+\usepackage{afterpage}
+\usepackage{graphicx}
+\usepackage{amsmath,amssymb,amsbsy}
+\usepackage{dcolumn,array}
+\usepackage{tocloft}
+\usepackage{dics}
+\usepackage{nomencl}
+\usepackage{upgreek}
+\newcommand{\argmin}{\arg\!\min}
+\usepackage{mathtools}
+\usepackage[hidelinks]{hyperref}
+
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+
+\usepackage{listings}
+\DeclarePairedDelimiter\abs{\lvert}{\rvert}%
+\makeatletter
+\usepackage{caption}
+\captionsetup[table]{belowskip=0.5pt}
+\usepackage{subfiles}
+
+\usepackage{listings}
+\renewcommand{\lstlistingname}{Код}
+\renewcommand{\lstlistlistingname}{\lstlistingname ын жагсаалт}
+
+\usepackage{color}
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.99,0.99,0.99}
+ 
+\lstdefinestyle{mystyle}{
+    basicstyle=\ttfamily\small,
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    %basicstyle=\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=false,                 
+    numbers=left,                    
+    numbersep=10pt,                  
+    showspaces=false,                
+    showstringspaces=true,
+    showtabs=false,                  
+    tabsize=2
+}
+ 
+\lstset{style=mystyle, label=DescriptiveLabel} 
+
+\let\oldabs\abs
+\def\abs{\@ifstar{\oldabs}{\oldabs*}}
+\makenomenclature
+\begin{document}
+
+
+%----------------------------------------------------------------------------------------
+%   Өөрийн мэдээллээ оруулах хэсэг
+%----------------------------------------------------------------------------------------
+
+% Дипломийн ажлын сэдэв
+\title{Веб программ хөгжүүлэлт}
+% Дипломын ажлын англи нэр
+\titleEng{Internship report}
+% Өөрийн овог нэрийг бүтнээр нь бичнэ
+\author{Алимаагийн Хүдэрчулуун}
+% Өөрийн овгийн эхний үсэг нэрээ бичнэ
+\authorShort{А. Хүдэрчулуун}
+% Удирдагчийн зэрэг цол овгийн эхний үсэг нэр
+\supervisor{О. Баярсайхан}
+% Хамтарсан удирдагчийн зэрэг цол овгийн эхний үсэг нэр
+\cosupervisor{Г.Манлай}
+
+% СиСи дугаар 
+\sisiId{20B1NUM0739}
+% Их сургуулийн нэр
+\university{МОНГОЛ УЛСЫН ИХ СУРГУУЛЬ}
+% Бүрэлдэхүүн сургуулийн нэр
+\faculty{ХЭРЭГЛЭЭНИЙ ШИНЖЛЭХ УХААН, ИНЖЕНЕРЧЛЭЛИЙН СУРГУУЛЬ}
+% Тэнхимийн нэр
+\department{МЭДЭЭЛЭЛ, КОМПЬЮТЕРИЙН УХААНЫ ТЭНХИМ}
+% Зэргийн нэр
+\degreeName{Үйлдвэрлэлийн дадлагын тайлан}
+% Суралцаж буй хөтөлбөрийн нэр
+\programeName{Компьютерийн ухаан (D061301)}
+% Хэвлэгдсэн газар
+\cityName{Улаанбаатар}
+% Хэвлэгдсэн огноо
+\gradyear{2023 оны 09 сар}
+
+
+%----------------------------------------------------------------------------------------
+%   Доорх хэсгийг өөрчлөх шаардлагагүй
+%----------------------------------------------------------------------------------------
+\include{main-pre}
+
+% Удиртгалыг оруулж ирэх ба abstract.tex файлд удиртгалаа бичнэ
+\include{abstract}
+
+%----------------------------------------------------------------------------------------
+%   Дипломын үндсэн хэсэг эндээс эхэлнэ
+%----------------------------------------------------------------------------------------
+%\addcontentsline{toc}{part}{БҮЛГҮҮД}
+% Шинэ бүлэг
+\graphicspath{ {./images/} }
+
+\chapter{Байгууллагын танилцуулга}
+\subfile{writing.tex}
+
+\chapter{ИЖИЛ СИСТЕМИЙН СУДАЛГАА}
+\subfile{field_study.tex}
+
+\chapter{СИСТЕМИЙН ШААРДЛАГА}
+\subfile{requirements.tex}
+
+\chapter{АШИГЛАХ ТЕХНОЛОГИ}
+\subfile{tech.tex}
+
+\chapter{Хэрэгжүүлэлт} 
+\subfile{implement.tex}
+
+\conclusion{Дүгнэлт} 
+
+Миний бие ГЭРЭГЭ СИСТЕМС ХХК-д 28 хоногийн хугацаанд full-stack-ийн албан тушаалд үйлдвэрлэлийн дадлагыг гүйцэтгэж дуусгалаа. Энэ хугацаанд Go, PostgreSQL, VueJS технологиудыг сайтар судласан ба үндсэн хөгжүүлэлтэд оролцохдоо хичээл дээр үзсэн онолын мэдлэгийг практик дээр туршин хувийн чадвараа сайжруулсан болно. Дадлагын хугацаанд Arrival MN гэх эрүүл мэндийн асуулга бөглөх системийн хянах системийн front-end, backend талыг хариуцан хөгжүүлсэн болно. 
+
+\setlength\parindent{24pt} Системийн хэрэгжүүлэлтийг гүйцэтгэх хугацаанд back-end талыг хувьд Golang дээр GORM, Go-Fiber фреймворк болон PostgreSQL, Python front-end тал дээр VueJS, ViteJS технологиудыг ашигласан. Хэрэгжүүлэлтийн хугацаанд бүтцийн алдаатай байдлаас үүдэн системийг өргөжүүлэхэд хүндрэл учирсан ба Хур Системтэй холбогдон ажиллахад Python хэл ашигласан нь системийн үйл ажиллагааг удашруулах зэрэг асуудлууд тулгарсан. Асуудлуудыг шийдвэрлэх зорилгоор системийг модульчилан дахин хэрэгжүүлсэн ба Хур Системтэй холбогдох интерфейсийг Golang дээр дахин хэрэгжүүлсэнийг ашиглан хөгжүүлэлтээ гүйцэтгэсэн. 
+
+\setlength\parindent{24pt} Дадлага гүйцэтгэх хугацаанд тухайн нөхцөл байдалд тохирох фреймворк, санг ашиглах нь гүйцэтгэлийн хурдыг сайжруулж, гарах алдааг багасгадгийг болон системийг хөгжүүлэх нь зөвхөн шаардлагатай үйлдлүүдийг хэрэгжүүлэхээс гадна бүтцийн зөв зохион байгуулалт нь системийн цаашдын өөрчлөлтөд тун чухал болохыг ойлгосон. Мөн Хуртай холбогдох интерфейсийг Python, Golang 2 хэл дээр хэрэгжүүлснээр  хэл бүр нь өөрийн онцлогтой ба тэрхүү онцлог нь нөхцөл байдлаасаа хамааран тэр нь давуу болон сул тал болж болохыг мэдсэн юм. Дадлага хийсэн туршлага нь миний цаашдын хөгжилд эерэгээр нөлөөлнө гэдэгт итгэлтэй байна.
+
+
+
+\end{document}
+
